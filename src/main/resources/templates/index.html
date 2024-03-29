@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Anime Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .anime-card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Anime Card -->
+        <div class="col-md-4 anime-card">
+            <div class="card">
+                <img th:src="${anime.picture_url}" class="card-img-top" alt="Anime Image">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${anime.title_en}">Anime Title</h5>
+                    <p class="card-text" th:text="${anime.synopsis}">Synopsis</p>
+                    <a href="#" th:href="@{${anime.watch_link}}" class="btn btn-primary">Watch Episodes</a>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" th:text="'Episodes: ' + ${anime.episodes}"></li>
+                    <li class="list-group-item" th:text="'Score: ' + ${anime.score}"></li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" th:href="@{${anime.myanimelist_url}}" class="card-link">More Info on MyAnimeList</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
